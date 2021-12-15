@@ -1,0 +1,20 @@
+<h1><%=pagetitle %></h1>
+<% for(var i=0;i<products.length;i++) {%>
+  <div class="row">
+    <div class="col-12"><h3><%=products[i].name %></h3></div>
+    <div class="col-8">
+      <p><%=products[i].description %></p>
+    </div>
+    <div class="col-4">
+      <dl>
+        <dt>Price</dt>
+        <dd><%=products[i].price %></dd>
+        <dt>Color</dt>
+        <dd><%=products[i].color %></dd>
+        <dt>Department</dt>
+        <dd><%=products[i].department %></dd>
+      </dl>
+    </div>
+  </div>
+  <% } %>
+</products.length;i++)>
