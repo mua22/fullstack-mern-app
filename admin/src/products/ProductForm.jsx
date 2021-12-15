@@ -19,6 +19,8 @@ const ProductForm = () => {
           console.log(err);
         });
   }, []);
+  const [image, setImage] = React.useState("");
+  const [progress, setProgess] = React.useState(0);
   const [sending, setSending] = React.useState(false);
   const [product, setProduct] = React.useState({
     name: "",
@@ -27,6 +29,14 @@ const ProductForm = () => {
     department: "",
     description: "",
   });
+  const getFormData = () => {
+    var form_data = new FormData();
+    for (var key in product) {
+      form_data.append(key, product[key]);
+    }
+    form_data.append("image", image);
+    return form_data;
+  };
   return (
     <div>
       <h2>Product Form</h2>
@@ -37,18 +47,36 @@ const ProductForm = () => {
           setSending(true);
           if (isEditing)
             axiosInstance
-              .put("/api/products/" + params.id, product)
+              .put("/api/products/" + params.id, getFormData(), {
+                onUploadProgress: (ProgressEvent) => {
+                  let progress =
+                    Math.round(
+                      (ProgressEvent.loaded / ProgressEvent.total) * 100
+                    ) + "%";
+                  setProgess(progress);
+                },
+              })
               .then((res) => {
                 //   console.log(res.data);
                 setSending(false);
                 navigate("/");
               });
           else
-            axiosInstance.post("/api/products", product).then((res) => {
-              //   console.log(res.data);
-              setSending(false);
-              navigate("/");
-            });
+            axiosInstance
+              .post("/api/products", getFormData(), {
+                onUploadProgress: (ProgressEvent) => {
+                  let progress =
+                    Math.round(
+                      (ProgressEvent.loaded / ProgressEvent.total) * 100
+                    ) + "%";
+                  setProgess(progress);
+                },
+              })
+              .then((res) => {
+                //   console.log(res.data);
+                setSending(false);
+                navigate("/");
+              });
         }}
       >
         {isEditing ? "Edit Product" : "Add Product"}
@@ -96,6 +124,16 @@ const ProductForm = () => {
         variant="standard"
         onChange={(e) => {
           setProduct({ ...product, description: e.target.value });
+        }}
+      />
+      <input
+        disabled={sending}
+        type="file"
+        onChange={(e) => {
+          setProgess(0);
+          const file = e.target.files[0]; // accessing file
+          console.log(file);
+          setImage(file); // storing file
         }}
       />
     </div>
