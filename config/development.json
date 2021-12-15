@@ -1,7 +1,6 @@
 {
   "jwtPrivateKey": "usmanPrivateKey",
-  "db": "mongodb+srv://minicab-server:1nBjBPrtJ817xBIl@cluster0-sycjd.mongodb.net/fullstack?retryWrites=true&w=majority",
-  "db1": "mongodb://localhost/sp19_bse_a",
+  "db": "mongodb://localhost/sp19_bse_a",
   "port": "4000",
   "sessionSecret": "MySessionSecret"
 }

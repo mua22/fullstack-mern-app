@@ -3,7 +3,14 @@
   <div class="row">
     <div class="col-12"><h3><%=products[i].name %></h3></div>
     <div class="col-8">
-      <p><%=products[i].description %></p>
+      <p class="pl-2">
+        <img
+          src="<%=products[i].image %>"
+          alt=""
+          class="float-left"
+          width="200px"
+        /><%=products[i].description %>
+      </p>
     </div>
     <div class="col-4">
       <dl>
