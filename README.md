@@ -59,3 +59,9 @@ password:"admin"
 roles:["admin","customer"]
 
 every user who has admin in its roles array will be able to modify the data.
+
+## caution
+
+locally react app will not be served from express. In order to do that you need to run following command from admin folder
+
+> npm run build

@@ -136,6 +136,11 @@ const ProductForm = () => {
           setProduct({ ...product, description: e.target.value });
         }}
       />
+      <br />
+      <div style={{ width: progress, backgroundColor: "blue", color: "white" }}>
+        Upload Status : {progress} %
+      </div>
+      <br />
       <input
         disabled={sending}
         type="file"
