@@ -1,6 +1,6 @@
 {
-  "jwtPrivateKey": "usmanPrivateKey",
-  "db": "mongodb://localhost/sp19_bse_a",
+  "jwtPrivateKey": "myPrivateKey",
+  "db": "mongodb://localhost/fullstack",
   "port": "4000",
   "sessionSecret": "MySessionSecret"
 }
