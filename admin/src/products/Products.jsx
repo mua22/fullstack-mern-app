@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import axiosInstance from "../services/axiosInstance";
 import AuthCheck from "../components/views/auth/AuthCheck";
+import { Button } from "@mui/material";
 const Products = () => {
   const [products, setProducts] = React.useState([]);
   const [hasError, setHasError] = React.useState(false);
@@ -30,11 +31,19 @@ const Products = () => {
     <AuthCheck>
       <div>
         <h3>Products</h3>
-        <Link to="/products/create">Add New Product</Link>
+
+        <Button
+          color="primary"
+          component={Link}
+          to="/products/create"
+          variant="contained"
+        >
+          Add New Product
+        </Button>
         {products.length == 0 && !hasError && <p>Loading ...</p>}
         {hasError && <p>Something Wrong Happened. We are looking into it</p>}
         {products.map((p) => (
-          <SingleProduct product={p} onDelete={getData} />
+          <SingleProduct product={p} key={p._id} onDelete={getData} />
         ))}
       </div>
     </AuthCheck>

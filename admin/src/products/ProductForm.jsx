@@ -1,7 +1,8 @@
-import { Button, TextField } from "@mui/material";
+import { Button, ButtonGroup, TextField } from "@mui/material";
 import React from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import axiosInstance from "../services/axiosInstance";
 const ProductForm = () => {
   const navigate = useNavigate();
@@ -39,48 +40,57 @@ const ProductForm = () => {
   };
   return (
     <div>
-      <h2>Product Form</h2>
-      <Button
+      <ButtonGroup
         variant="contained"
-        disabled={sending}
-        onClick={(e) => {
-          setSending(true);
-          if (isEditing)
-            axiosInstance
-              .put("/api/products/" + params.id, getFormData(), {
-                onUploadProgress: (ProgressEvent) => {
-                  let progress =
-                    Math.round(
-                      (ProgressEvent.loaded / ProgressEvent.total) * 100
-                    ) + "%";
-                  setProgess(progress);
-                },
-              })
-              .then((res) => {
-                //   console.log(res.data);
-                setSending(false);
-                navigate("/");
-              });
-          else
-            axiosInstance
-              .post("/api/products", getFormData(), {
-                onUploadProgress: (ProgressEvent) => {
-                  let progress =
-                    Math.round(
-                      (ProgressEvent.loaded / ProgressEvent.total) * 100
-                    ) + "%";
-                  setProgess(progress);
-                },
-              })
-              .then((res) => {
-                //   console.log(res.data);
-                setSending(false);
-                navigate("/");
-              });
-        }}
+        color="primary"
+        aria-label="contained primary button group"
+        size="small"
       >
-        {isEditing ? "Edit Product" : "Add Product"}
-      </Button>
+        <Button component={Link} to="/">
+          Back To Products
+        </Button>
+        <Button
+          variant="contained"
+          disabled={sending}
+          onClick={(e) => {
+            setSending(true);
+            if (isEditing)
+              axiosInstance
+                .put("/api/products/" + params.id, getFormData(), {
+                  onUploadProgress: (ProgressEvent) => {
+                    let progress =
+                      Math.round(
+                        (ProgressEvent.loaded / ProgressEvent.total) * 100
+                      ) + "%";
+                    setProgess(progress);
+                  },
+                })
+                .then((res) => {
+                  //   console.log(res.data);
+                  setSending(false);
+                  navigate("/");
+                });
+            else
+              axiosInstance
+                .post("/api/products", getFormData(), {
+                  onUploadProgress: (ProgressEvent) => {
+                    let progress =
+                      Math.round(
+                        (ProgressEvent.loaded / ProgressEvent.total) * 100
+                      ) + "%";
+                    setProgess(progress);
+                  },
+                })
+                .then((res) => {
+                  //   console.log(res.data);
+                  setSending(false);
+                  navigate("/");
+                });
+          }}
+        >
+          {isEditing ? "Edit Product" : "Add Product"}
+        </Button>
+      </ButtonGroup>
       <br />
 
       <TextField

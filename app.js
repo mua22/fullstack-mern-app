@@ -11,6 +11,10 @@ var checkSessionAuth = require("./middlewares/checkSessionAuth");
 var apiauth = require("./middlewares/apiauth");
 var session = require("express-session");
 var app = express();
+var bodyParser = require("body-parser");
+app.use(bodyParser.json());
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true }));
 var config = require("config");
 app.use(
   session({
@@ -33,7 +37,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/api/products", require("./routes/api/products"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/", sessionAuth, indexRouter);
-app.use("/", sessionAuth, checkSessionAuth, protectedRouter);
+app.use("/my-account", sessionAuth, checkSessionAuth, protectedRouter);
+app.use("/", sessionAuth, require("./routes/shop"));
 app.get("/admin", async (req, res) => {
   res.sendFile(path.join(__dirname, "admin", "build", "index.html"));
 });

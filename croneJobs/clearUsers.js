@@ -1,5 +1,6 @@
 const User = require("../models/User");
 var faker = require("faker");
+var bcrypt = require("bcryptjs");
 async function clearUsers() {
   console.log("Refreshing Users");
   let users = [];

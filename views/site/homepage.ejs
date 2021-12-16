@@ -5,7 +5,7 @@
     <div class="col-8">
       <p class="pl-2">
         <img
-          src="<%=products[i].image %>"
+          src="/images/uploaded/<%=products[i].image %>"
           alt=""
           style="float: left; padding: 10px"
           width="200px"
@@ -13,6 +13,9 @@
       </p>
     </div>
     <div class="col-4">
+      <a href="/add-cart/<%=products[i]._id %>" class="btn btn-info w-full"
+        >Add To Cart</a
+      >
       <dl>
         <dt>Price</dt>
         <dd><%=products[i].price %></dd>
