@@ -9,6 +9,7 @@ This repo hosts a Express App in main folder and a React App in admin folder
 from main folder run
 
 > npm install
+
 > npm run dev
 
 Application will start at localhost:/4000
@@ -21,6 +22,7 @@ you should have installed nodmeon once using below commad
 admin folder resides inside same root folder go to admin folder and execute following commands
 
 > npm i
+
 > npm start
 
 react app will start at localhost:3000/admin
@@ -28,8 +30,11 @@ react app will start at localhost:3000/admin
 ## Deploy
 
 This application is heroku ready you must declare three environment variables namely
+
 jwtPrivateKey
+
 db
+
 sessionSecret
 
 db will contain the connection string of your mongo db
