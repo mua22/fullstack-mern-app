@@ -15,6 +15,9 @@ function App() {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <li>
+            <a href="/">Visit Website</a>
+          </li>
           {localStorage.getItem("jwt_access_token") ? (
             <>
               <li>

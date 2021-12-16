@@ -6,7 +6,7 @@ async function sessionAuth(req, res, next) {
     res.locals.isAdmin = Boolean(
       req.session.user.roles.find((r) => r == "admin")
     );
-  }
+  } else req.session.user = null;
   //set flash function to req;
   //use req.flash("info","message") in router to set a flash message
   req.flash = function (type, message) {

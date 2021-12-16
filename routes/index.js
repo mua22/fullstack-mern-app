@@ -28,6 +28,7 @@ router.get("/register", function (req, res, next) {
 });
 router.get("/logout", async (req, res) => {
   req.session.user = null;
+  console.log("session clear");
   return res.redirect("/login");
 });
 router.post("/register", async function (req, res, next) {
