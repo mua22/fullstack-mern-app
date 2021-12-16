@@ -7,54 +7,37 @@ import "./App.css";
 import ProductDetails from "./products/ProductDetails";
 import ProductForm from "./products/ProductForm";
 import { Container } from "@mui/material";
+import Provider from "react-redux/es/components/Provider";
+import store from "./store";
+import NavBar from "./components/layout/NavBar";
+import MenuColorChanger from "./components/redux-examples/MenuColorChanger";
+import ReduxThunkExample from "./components/redux-examples/ReduxThunkExample";
 function App() {
   return (
     <div className="App">
-      <Router basename={"/admin"}>
-        <ul id="menu">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <a href="/">Visit Website</a>
-          </li>
-          {localStorage.getItem("jwt_access_token") ? (
-            <>
-              <li>
-                <a
-                  href=""
-                  onClick={(e) => {
-                    e.preventDefault();
-                    localStorage.removeItem("jwt_access_token");
-                    window.location.reload();
-                  }}
-                >
-                  Logout
-                </a>
-              </li>{" "}
-            </>
-          ) : (
-            <>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-            </>
-          )}
-        </ul>
-        <Container maxWidth="lg">
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/products/create" element={<ProductForm />} />
-            <Route path="/products/edit/:id" element={<ProductForm />} />
-            <Route path="/products/details/:id" element={<ProductDetails />} />
-            <Route path="/" element={<Products />} />
-          </Routes>
-        </Container>
-      </Router>
+      <Provider store={store}>
+        <Router basename={"/admin"}>
+          <NavBar />
+          <Container maxWidth="lg">
+            <Routes>
+              <Route
+                path="/redux-thunk-example"
+                element={<ReduxThunkExample />}
+              />
+              <Route path="/redux-example" element={<MenuColorChanger />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/products/create" element={<ProductForm />} />
+              <Route path="/products/edit/:id" element={<ProductForm />} />
+              <Route
+                path="/products/details/:id"
+                element={<ProductDetails />}
+              />
+              <Route path="/" element={<Products />} />
+            </Routes>
+          </Container>
+        </Router>
+      </Provider>
     </div>
   );
 }
