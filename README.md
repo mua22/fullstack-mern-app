@@ -12,7 +12,7 @@ from main folder run
 
 > npm run dev
 
-Application will start at localhost:/4000
+Application will start at localhost:4000
 you should have installed nodmeon once using below commad
 
 > npm i nodemon -g
@@ -65,3 +65,7 @@ every user who has admin in its roles array will be able to modify the data.
 locally react app will not be served from express. In order to do that you need to run following command from admin folder
 
 > npm run build
+
+## info
+
+Live version is hosted at https://fullstack-usman.herokuapp.com/
