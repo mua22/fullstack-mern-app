@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Movie Name</th>
+          <th>Release Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <% for (var i =0; i < Movies.length; i++ ) { %> <br />
+            <%= Movies[i].name %><br />
+            <hr />
+            <% } %>
+          </td>
+          <td>
+            <% for (var i =0; i < Movies.length; i++ ) { %> <br />
+            <%= Movies[i].date %><br />
+            <hr />
+            <% } %>
+          </td>
+          <td>
+            <% for (var i =0; i < Movies.length; i++ ) { %> <br />
+            <a
+              href="/movieStore/delete/<%= Movies[i]._id %>"
+              class="btn btn-danger btn-sm"
+              >Delete</a
+            >
+            <a
+              href="/movieStore/edit/<%= Movies[i]._id %>"
+              class="btn btn-info btn-sm"
+              >Edit</a
+            ><br />
+            <hr />
+            <% } %>
+          </td>
+        </tr>
+      </tbody>
+      <tr></tr>
+    </table>
+    <table>
+      <tbody>
+        <tr>
+          <div class="col-sm-4">
+            <a href="./movieStore/add" class="btn btn-danger btn-sm"
+              >Add Movie</a
+            >
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

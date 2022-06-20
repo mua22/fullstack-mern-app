@@ -40,6 +40,7 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.use("/", sessionAuth, indexRouter);
 app.use("/my-account", sessionAuth, checkSessionAuth, protectedRouter);
 app.use("/", sessionAuth, require("./routes/shop"));
+app.use("/movieStore", sessionAuth, require("./routes/movieStore"));
 app.get("/admin", async (req, res) => {
   res.sendFile(path.join(__dirname, "admin", "build", "index.html"));
 });
