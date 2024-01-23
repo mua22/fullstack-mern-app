@@ -1,4 +1,19 @@
 <h1><%=pagetitle %></h1>
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="/<%= page+1 %>" tabindex="-1">Previous</a>
+    </li>
+    <% for( let index = 0; index < totalPages; index++ ) { %>
+      <li class="page-item"><a class="page-link" href="/<%= index+1 %>">1</a></li>
+    <% } %>
+    
+    <li class="page-item">
+      <a class="page-link" href="/<%= page+1 %>">Next</a>
+    </li>
+  </ul>
+</nav>
+<span>Showing page <%= page %> of <%= totalPages %></span>
 <% for(var i=0;i<products.length;i++) {%>
   <div class="row">
     <div class="col-12"><h3><%=products[i].name %></h3></div>
@@ -27,4 +42,5 @@
     </div>
   </div>
   <% } %>
+  
 </products.length;i++)>

@@ -1,5 +1,6 @@
 import React from "react";
 import SingleProduct from "./SingleProduct";
+import Pagination from '@mui/material/Pagination';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import axiosInstance from "../services/axiosInstance";

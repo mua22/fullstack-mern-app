@@ -22,4 +22,24 @@ router.get("/add-cart/:id", function (req, res, next) {
   res.redirect("/");
 });
 
+router.get("/:page?", async function (req, res, next) {
+  let page = Number(req.params.page);
+  let pageSize = 10;
+  let skip = (page - 1) * pageSize;
+  if (!page) page = 1;
+  if (!skip) skip = 0;
+
+  // return res.send({ page, pageSize, skip });
+  let products = await Product.find().skip(skip).limit(pageSize);
+  let totalProducts = await Product.countDocuments();
+  let totalPages = Math.ceil(totalProducts / pageSize);
+  return res.render("site/homepage", {
+    pagetitle: "Awesome Products",
+    products,
+    page,
+    pageSize,
+    totalPages,
+  });
+});
+
 module.exports = router;
