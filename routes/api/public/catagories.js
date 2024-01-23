@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var Catagories = require("../../../models/Catagories");
+var Catagories = require("../../models/Catagories");
 
 router.get("/", async function (req, res, next) {
   console.log("inside");

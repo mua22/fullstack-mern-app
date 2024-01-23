@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Product = require("../models/Product");
+const Category = require("../models/Category");
 router.get("/cart", async function (req, res, next) {
   let cart = req.cookies.cart;
   if (!cart) cart = [];
@@ -42,15 +43,15 @@ router.get("/:page?", async function (req, res, next) {
   });
 });
 
-router.get("/:Catagory?", async function (req, res, next) {
-  let Catagory = Number(req.params.page);
-  let Catagoies_items = [shirts, pants, begs, trousels, dresses];
-
-  // return res.send({ page, pageSize, skip });
-  return res.render("site/homepage", {
-    pagetitle: "All Catagories",
-    Catagory,
-    Catagoies_items,
+router.get("/:Catagorys?", async function (req, res, next) {
+  let catagories = await Category;
+  let Categorys = [shirt, pant, beg, trousels, dresses];
+      // return res.send({ page, pageSize, skip });
+  return res.render("site/collections/Catetorys", {
+    Category_title: "All Catagories",
+      catagories,
+      Categorys,
+  
   });
 });
 
