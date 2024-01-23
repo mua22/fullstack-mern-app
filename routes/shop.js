@@ -42,4 +42,16 @@ router.get("/:page?", async function (req, res, next) {
   });
 });
 
+router.get("/:Catagory?", async function (req, res, next) {
+  let Catagory = Number(req.params.page);
+  let Catagoies_items = [shirts, pants, begs, trousels, dresses];
+
+  // return res.send({ page, pageSize, skip });
+  return res.render("site/homepage", {
+    pagetitle: "All Catagories",
+    Catagory,
+    Catagoies_items,
+  });
+});
+
 module.exports = router;
