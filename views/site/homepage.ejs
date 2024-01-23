@@ -1,8 +1,8 @@
 <h1><%=pagetitle %></h1>
 <nav aria-label="...">
   <ul class="pagination">
-    <li class="page-item disabled">
-      <a class="page-link" href="/<%= page+1 %>" tabindex="-1">Previous</a>
+    <li class="page-item ">
+      <a class="page-link" href="/<%= page-1 %>" tabindex="-1">Previous</a>
     </li>
     <% for( let index = 0; index < totalPages; index++ ) { %>
       <li class="page-item"><a class="page-link" href="/<%= index+1 %>">1</a></li>
@@ -13,6 +13,9 @@
     </li>
   </ul>
 </nav>
+<h2 class="center"> All Catagories</h2>
+<span> <%= Catagory %></span>
+  <span><%= Catagoies_items%></span>
 <span>Showing page <%= page %> of <%= totalPages %></span>
 <% for(var i=0;i<products.length;i++) {%>
   <div class="row">
