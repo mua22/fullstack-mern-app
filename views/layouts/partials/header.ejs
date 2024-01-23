@@ -17,6 +17,17 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Collections
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <% allCategories.forEach(cat => { %>
+              <li><a class="dropdown-item" href="/collections/<%= cat.slug %>"><%= cat.name %></a></li>
+            <% }) %>
+          </ul>
+        </li>
 
         <li class="nav-item">
           <a href="/contact-us" class="nav-link">Contact Us</a>

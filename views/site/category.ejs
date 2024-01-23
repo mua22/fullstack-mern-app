@@ -1,0 +1,51 @@
+<h1><%= category.name %></h1>
+
+<nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item ">
+        <a class="page-link" href="/<%= page-1 %>" tabindex="-1">Previous</a>
+      </li>
+      <% for( let index = 0; index < totalPages; index++ ) { %>
+        <li class="page-item"><a class="page-link" href="/<%= index+1 %>">1</a></li>
+      <% } %>
+      
+      <li class="page-item">
+        <a class="page-link" href="/<%= page+1 %>">Next</a>
+      </li>
+    </ul>
+  </nav>
+  <h2 class="center"> All Catagories</h2>
+  
+    
+  <span>Showing page <%= page %> of <%= totalPages %></span>
+  <% for(var i=0;i<products.length;i++) {%>
+    <div class="row">
+      <div class="col-12"><h3><%=products[i].name %></h3></div>
+      <div class="col-8">
+        <p class="pl-2">
+          <img
+            src="/images/uploaded/<%=products[i].image %>"
+            alt=""
+            style="float: left; padding: 10px"
+            width="200px"
+          /><%=products[i].description %>
+        </p>
+      </div>
+      <div class="col-4">
+        <a href="/add-cart/<%=products[i]._id %>" class="btn btn-info w-full"
+          >Add To Cart</a
+        >
+        <dl>
+          <dt>Price</dt>
+          <dd><%=products[i].price %></dd>
+          <dt>Color</dt>
+          <dd><%=products[i].color %></dd>
+          <dt>Department</dt>
+          <dd><%=products[i].department %></dd>
+        </dl>
+      </div>
+    </div>
+    <% } %>
+    
+  </products.length;i++)>
+  

@@ -1,5 +1,8 @@
-//sets user variable for pug files
+//sets user variable for ejs files
+let Category = require("../models/Category");
 async function sessionAuth(req, res, next) {
+  let allCategories = await Category.find();
+  res.locals.allCategories = allCategories;
   res.locals.user = req.session.user;
   res.locals.isAdmin = false;
   if (req.session.user) {
