@@ -22,7 +22,7 @@ router.get("/add-cart/:id", function (req, res, next) {
   res.redirect("/");
 });
 
-  router.get("/:page?", async function (req, res, next) {
+router.get("/:page?", async function (req, res, next) {
   let page = Number(req.params.page);
   let pageSize = 10;
   let skip = (page - 1) * pageSize;
@@ -41,7 +41,7 @@ router.get("/add-cart/:id", function (req, res, next) {
     totalPages,
   });
 });
-  
+
 router.get("/:Catagory?", async function (req, res, next) {
   let Catagory = Number(req.params.page);
   let Catagoies_items = [shirts, pants, begs, trousels, dresses];
@@ -53,4 +53,5 @@ router.get("/:Catagory?", async function (req, res, next) {
     Catagoies_items,
   });
 });
-  
+
+module.exports = router;
