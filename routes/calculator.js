@@ -1,6 +1,12 @@
 const express = require("express");
 const CalculatorOperation = require("../models/CalculatorOperation");
 let router = express.Router();
+router.get("/ajax-example", async (req, res) => {
+  console.log("get method /calculator");
+  let results = await CalculatorOperation.find();
+  // return res.send(results);
+  return res.render("calculator/calculator-example-ajax", { results });
+});
 router.get("/delete-all", async (req, res) => {
   await CalculatorOperation.deleteMany({});
   return res.redirect("/calculator");
@@ -9,6 +15,7 @@ router.get("/delete/:id", async (req, res) => {
   await CalculatorOperation.findByIdAndDelete(req.params.id);
   return res.redirect("/calculator");
 });
+
 router.get("/", async (req, res) => {
   console.log("get method /calculator");
   let results = await CalculatorOperation.find();

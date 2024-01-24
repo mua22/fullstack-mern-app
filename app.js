@@ -32,10 +32,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false })); //is a middleware function that is used to parse incoming requests with urlencoded payloads e.g. form submissions
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+// his middleware is used to serve static files, such as images, CSS files, and JavaScript files, directly from a specified directory.
 
 app.use("/api/public/products", require("./routes/api/public/products"));
 app.use("/api/categories", require("./routes/api/catagories"));
 app.use("/api/products", apiauth, require("./routes/api/products"));
+app.use("/api/calculator", require("./routes/api/calculator"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use(sessionAuth); // add a middleware which should run on all server side rendering routes
 app.use("/calculator", require("./routes/calculator")); //add a calculator router on all methods with /calculator prefix

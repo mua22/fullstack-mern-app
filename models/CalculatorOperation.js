@@ -7,7 +7,7 @@ const calculatorOperationSchema = mongoose.Schema(
     result: String,
     description: String,
   },
-  { timestamps: true }
+  { timestamps: true, toJSON: { virtuals: true } }
 );
 // The pre-save middleware is executed before a document is saved to the MongoDB database.
 //This is useful for performing tasks or modifications to the document just before it gets persisted to the database.

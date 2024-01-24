@@ -1,0 +1,53 @@
+
+<h1>Calculator Example</h1>
+This page demonstrates how a simple form submission is done in express 
+
+<form action="" id="calculatorPostFormAjax" class="row" method="post">
+    <div class="col-3">
+        <label for="operand1" class="form-label" >Operand One</label>
+        <input id="operand1" type="text" class="form-control" value="4" name="operand1">
+    </div>
+    <div class="col-3">
+        <label for="operation" class="form-label">Operation</label>
+        <select id="operation" class="form-control" name="operation">
+            <option value="+">add</option>
+            <option value="-">subtract</option>
+        </select>  
+    </div>
+    <div class="col-3">
+        <label for="operand2" class="form-label">Operand Two</label>
+        <input id="operand2" type="text" class="form-control" value="2" name="operand2">
+    </div>
+    <div class="col-3">
+        <button class="btn btn-info" type="submit">Calculate</button>
+    </div>
+</form>
+
+
+<a href="/calculator/delete-all" class="btn btn-info" id="deleteAllBtn">Delete All Records</a>
+<table id="calculationResultsTbl" class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Operand 1</th>
+            <th>Operation</th>
+            <th>Operand 2</th>
+            <th>Result</th>
+            <th>Description</th>
+            <th>Virtual Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% results.forEach(element => { %>
+         <tr>
+            <td><a class="btn btn-sm btn-warning" data-id="<%= element._id %>" href="/calculator/delete/<%= element._id %>">Del</a></td>
+            <td><%= element.operand1 %></td>
+            <td><%= element.operation %></td>
+            <td><%= element.operand2 %></td>
+            <td><%= element.result %></td>
+            <td><%= element.description %></td>
+            <td><%= element.virtual_result %></td>
+         </tr>
+        <% }) %>
+    </tbody>
+</table>
