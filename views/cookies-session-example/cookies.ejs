@@ -1,0 +1,21 @@
+<h1>Cookies</h1>
+<p>Cookies are small pieces of data that a web server sends to a user's browser and are stored on the user's device. They are typically used to store information about the user or their interactions with a website. Cookies serve various purposes, and they play a crucial role in web development.</p>
+<p>In this example we will demonstrate how a cookie named city will be used</p>
+
+<form action="" method="post" class="row">
+    <div class="col-9">
+        <input id="city" class="form-control" name="city" value="Lahore"/>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-info">Set Cookie</button>
+    </div>
+</form>
+<% if (city) { %>
+ <div class="alert alert-info">
+    Cookie City has value <%= city %>
+ </div>
+<% } else { %>
+ <div class="alert alert-danger">
+    Cookie City is not set
+ </div>
+<% } %>

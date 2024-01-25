@@ -1,0 +1,20 @@
+<h1>Session</h1>
+<p>A "session" in web development refers to a series of interactions or requests that occur between a user and a website within a specific timeframe. Sessions are used to maintain state and information about a user across multiple requests. This is crucial for scenarios like user authentication, where a user logs in once and their session is maintained throughout their interaction with the web application.</p>
+
+<form action="" method="post" class="row">
+    <div class="col-9">
+        <input id="university" class="form-control" name="university" value="COMSATS"/>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-info">Set Session</button>
+    </div>
+</form>
+<% if (university) { %>
+ <div class="alert alert-info">
+    Session university has value <%= university %>
+ </div>
+<% } else { %>
+ <div class="alert alert-danger">
+    Session university is not set
+ </div>
+<% } %>

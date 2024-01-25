@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <%-include("./layouts/partials/header") %> <% if(typeof(flash)!="undefined")
+    <%-include("./layouts/partials/header") %> 
+    <% if(typeof(flash)!="undefined")
     {%>
     <div class="alert alert-<%= flash.type %> center-block m-2">
       <%= flash.message %>

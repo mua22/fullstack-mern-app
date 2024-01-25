@@ -41,6 +41,10 @@ app.use("/api/calculator", require("./routes/api/calculator"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use(sessionAuth); // add a middleware which should run on all server side rendering routes
 app.use("/calculator", require("./routes/calculator")); //add a calculator router on all methods with /calculator prefix
+app.use(
+  "/cookies-session-example",
+  require("./routes/cookies-session-example")
+); //add a calculator router on all methods with /calculator prefix
 app.use("/", indexRouter);
 app.use("/my-account", checkSessionAuth, protectedRouter);
 app.use("/", require("./routes/shop"));
