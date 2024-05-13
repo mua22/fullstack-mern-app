@@ -18,7 +18,6 @@ router.post("/", async function (req, res, next) {
       _id: user._id,
       roles: user.roles,
       name: user.name,
-
       email: user.email,
     },
     config.get("jwtPrivateKey")

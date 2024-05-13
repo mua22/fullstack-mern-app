@@ -1,6 +1,6 @@
 {
   "jwtPrivateKey": "myPrivateKey",
-  "db": "mongodb+srv://abubakerasifdar100:abubakerasifdar100@cluster0.fqx5gkc.mongodb.net/fullstack",
+  "db": "mongodb://localhost:27017/fullstack",
   "port": "4000",
   "sessionSecret": "MySessionSecret"
 }
