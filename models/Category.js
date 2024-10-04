@@ -1,3 +1,6 @@
+/**
+ * Category Model
+ */
 const mongoose = require("mongoose");
 const catagoriesSchema = mongoose.Schema({
   name: String,

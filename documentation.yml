@@ -1,0 +1,12 @@
+name: "My Express API"
+version: "1.0.0"
+source:
+  - "app.js"
+  - "models/*.js"
+output:
+  format: "md"
+  destination: "docs-md"
+  multi: true
+exclude:
+  - "test/**"
+  - "example.js"

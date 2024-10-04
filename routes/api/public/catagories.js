@@ -1,3 +1,11 @@
+/**
+ * @api {get} / Request CAtegories
+ * @apiName getCategories
+ * @apiGroup User
+ *
+ * @apiSuccess {Object[]} categories List of categories.
+ */
+
 var express = require("express");
 var router = express.Router();
 var Catagories = require("../../models/Catagories");
