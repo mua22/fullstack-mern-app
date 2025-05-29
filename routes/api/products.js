@@ -22,7 +22,9 @@ router.get("/", async function (req, res, next) {
 });
 router.post("/", upload.single("image"), async function (req, res, next) {
   let product = new Product(req.body);
-  if (req.file) product.image = req.file.filename;
+
+  if (req.file) product.image = req.file?.filename ? req.file.filename : "";
+
   await product.save();
   res.send(product);
 });

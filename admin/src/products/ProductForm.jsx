@@ -36,8 +36,12 @@ const ProductForm = () => {
       form_data.append(key, product[key]);
     }
     form_data.append("image", image);
+    for (let pair of form_data.entries()) {
+      // console.log(`${pair[0]}: ${pair[1]}`);
+    }
     return form_data;
   };
+
   return (
     <div>
       <ButtonGroup
@@ -85,6 +89,11 @@ const ProductForm = () => {
                   //   console.log(res.data);
                   setSending(false);
                   navigate("/");
+                })
+                .catch((err) => {
+                  console.log(err);
+                  alert("Error in form submission");
+                  setSending(false);
                 });
           }}
         >

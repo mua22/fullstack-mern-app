@@ -4,7 +4,7 @@ let axiosInstance = axios.create({
   // withCredentials: true,
   headers: {
     "Access-Control-Allow-Origin": "*",
-    "Content-Type": "application/json",
+    // "Content-Type": "application/json",
   },
 });
 axiosInstance.defaults.headers.common["x-auth-token"] = localStorage.getItem(
@@ -12,7 +12,7 @@ axiosInstance.defaults.headers.common["x-auth-token"] = localStorage.getItem(
 )
   ? localStorage.getItem("jwt_access_token").toString()
   : "";
-axiosInstance.defaults.headers.post["Content-Type"] = "application/json";
+// axiosInstance.defaults.headers.post["Content-Type"] = "application/json";
 // axiosInstance.interceptors.response.use(
 //   response => successHandler(response),
 //   error => errorHandler(error)
