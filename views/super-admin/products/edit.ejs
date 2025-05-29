@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <h2>Edit Product</h2>
+  
+    <form action="/super-admin/products/edit/<%= product._id %>" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input type="text" name="name" class="form-control" value="<%= product.name %>" required>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="text" name="price" class="form-control" value="<%= product.price %>" required>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Color</label>
+        <input type="text" name="color" class="form-control" value="<%= product.color %>">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Department</label>
+        <input type="text" name="department" class="form-control" value="<%= product.department %>">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="description" class="form-control" rows="3"><%= product.description %></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Current Image</label><br>
+        <% if (product.image) { %>
+          <img src="/images/uploaded/<%= product.image %>" alt="Product Image" width="100" class="mb-2">
+        <% } else { %>
+          <p>No image uploaded.</p>
+        <% } %>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Change Image</label>
+        <input type="file" name="image" class="form-control" accept="image/*">
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Update Product</button>
+      <a href="/super-admin/products" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+  

@@ -7,6 +7,7 @@ var expressLayouts = require("express-ejs-layouts");
 var indexRouter = require("./routes/index");
 var protectedRouter = require("./routes/protected");
 var sessionAuth = require("./middlewares/sessionAuth");
+var superAdminMiddleware = require("./middlewares/super-admin");
 var checkSessionAuth = require("./middlewares/checkSessionAuth");
 var apiauth = require("./middlewares/apiauth");
 var session = require("express-session");
@@ -36,6 +37,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  "/super-admin",
+  superAdminMiddleware,
+  require("./routes/super-admin/dashbosrd")
+);
+app.use(
+  "/super-admin",
+  superAdminMiddleware,
+  require("./routes/super-admin/products")
+);
 app.use("/api/public/products", require("./routes/api/public/products"));
 app.use("/api/categories", require("./routes/api/catagories"));
 app.use("/api/products", apiauth, require("./routes/api/products"));
